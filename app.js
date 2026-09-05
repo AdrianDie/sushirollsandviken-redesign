@@ -81,13 +81,18 @@
       section.className = 'menu-category';
       section.id = slug;
 
+      var container = document.createElement('div');
+      container.className = 'container';
+      section.appendChild(container);
+
       var head = document.createElement('div');
       head.className = 'menu-category-head';
       head.innerHTML = '<h2>' + cat.category + '</h2><span>' + cat.items.length + ' retter</span>';
-      section.appendChild(head);
+      container.appendChild(head);
 
       var list = document.createElement('div');
       list.className = 'menu-list';
+      container.appendChild(list);
 
       cat.items.forEach(function (item) {
         var row = document.createElement('div');
@@ -127,7 +132,6 @@
         list.appendChild(row);
       });
 
-      section.appendChild(list);
       menuRoot.appendChild(section);
       sections.push({ id: slug, link: navLink });
     });
@@ -148,6 +152,7 @@
     }
 
     /* scrollspy for category nav */
+    var lastActive = null;
     var setActive = function () {
       var y = window.scrollY + 140;
       var current = sections[0];
@@ -156,6 +161,10 @@
         if (el && el.offsetTop <= y) current = s;
       });
       sections.forEach(function (s) { s.link.classList.toggle('is-active', s === current); });
+      if (current !== lastActive) {
+        lastActive = current;
+        current.link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
     };
     setActive();
     window.addEventListener('scroll', setActive, { passive: true });
