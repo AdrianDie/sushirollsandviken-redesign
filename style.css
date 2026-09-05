@@ -400,6 +400,25 @@ body.no-hero .site-header .brand img{height:clamp(36px,7vw,46px)}
   .split.reverse .split-media{order:0}
 }
 
+/* ---------- Reviews ---------- */
+.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.5vw,26px);max-width:760px;margin-inline:auto}
+.review-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(28px,4vw,36px);text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.review-top{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:4px}
+.review-platform{font-family:var(--serif);font-size:20px}
+.stars{width:110px;height:20px}
+.review-score{font-family:var(--serif);font-size:22px}
+.review-score strong{font-size:28px}
+.review-count{color:var(--ink-soft);font-size:14px;margin-bottom:10px}
+.review-card .btn-row{justify-content:center}
+@media (max-width:600px){
+  .review-grid{grid-template-columns:1fr}
+  .review-card .btn-row{flex-direction:column;width:100%}
+}
+
 /* ---------- Action cards (booking/takeaway/delivery) ---------- */
 .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,26px)}
 .action-card{
