@@ -517,6 +517,7 @@ body.no-hero .site-header .brand img{height:clamp(36px,7vw,46px)}
 @media (max-width:600px){
   :root{--section-pad: clamp(52px, 14vw, 84px)}
   .hero h1{max-width:none}
+  .hero-inner{padding-bottom:clamp(100px,20vw,140px)}
   .btn-row{width:100%}
   .btn-row .btn{flex:1 1 auto}
 }
