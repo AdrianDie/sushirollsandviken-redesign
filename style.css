@@ -345,7 +345,6 @@ section[id]{scroll-margin-top:96px}
 .review-card .btn-row{justify-content:center}
 @media (max-width:600px){
   .review-grid{grid-template-columns:1fr}
-  .review-card .btn-row{flex-direction:column;width:100%}
 }
 
 /* ---------- Action cards (booking/takeaway/delivery) ---------- */
@@ -449,6 +448,5 @@ section[id]{scroll-margin-top:96px}
   :root{--section-pad: clamp(52px, 14vw, 84px)}
   .hero h1{max-width:none}
   .hero-inner{padding-bottom:clamp(100px,20vw,140px)}
-  .btn-row{width:100%}
-  .btn-row .btn{flex:1 1 auto}
+  .btn-row{width:100%;flex-direction:column;align-items:stretch;gap:14px}
 }
