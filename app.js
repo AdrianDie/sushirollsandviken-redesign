@@ -13,12 +13,14 @@
   function openMenu() {
     mobileMenu.classList.add('is-open');
     scrim.classList.add('is-open');
+    document.body.classList.add('menu-open');
     hamburgerBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
   function closeMenu() {
     mobileMenu.classList.remove('is-open');
     scrim.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
     hamburgerBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }

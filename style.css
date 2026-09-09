@@ -451,6 +451,7 @@ section[id]{scroll-margin-top:96px}
 @media (max-width:860px){
   .nav-pill{display:none}
   .mobile-tabbar{display:flex}
+  body.menu-open .mobile-tabbar{display:none}
   body{padding-bottom:76px}
 }
 @media (max-width:600px){
