@@ -4,16 +4,6 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Header: solid once scrolled ---------- */
-  var header = document.getElementById('siteHeader');
-  if (header && !document.body.classList.contains('no-hero')) {
-    var toggleHeader = function () {
-      header.classList.toggle('is-solid', window.scrollY > 24);
-    };
-    toggleHeader();
-    window.addEventListener('scroll', toggleHeader, { passive: true });
-  }
-
   /* ---------- Mobile off-canvas menu ---------- */
   var hamburgerBtn = document.getElementById('hamburgerBtn');
   var mobileMenu = document.getElementById('mobileMenu');
@@ -55,6 +45,30 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Per-word headline reveal ---------- */
+  var headlineEls = document.querySelectorAll('.headline');
+  headlineEls.forEach(function (h) {
+    var mutedCount = parseInt(h.getAttribute('data-muted') || '0', 10);
+    var words = h.textContent.trim().split(/\s+/);
+    h.innerHTML = words.map(function (w, i) {
+      var isMuted = (words.length - i) <= mutedCount;
+      return '<span class="word' + (isMuted ? ' word--muted' : '') + '" style="transition-delay:' + (i * 45) + 'ms">' + w + '</span>';
+    }).join(' ');
+  });
+  if ('IntersectionObserver' in window && headlineEls.length) {
+    var ioHeadline = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          ioHeadline.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+    headlineEls.forEach(function (el) { ioHeadline.observe(el); });
+  } else {
+    headlineEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
   /* ---------- Menu page: render MENU_DATA ---------- */
