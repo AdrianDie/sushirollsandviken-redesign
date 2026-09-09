@@ -237,12 +237,23 @@ section[id]{scroll-margin-top:96px}
 .nav-pill .nav-cta{border-color:var(--paper);background:var(--paper);color:var(--ink)}
 .nav-pill .nav-cta:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
 
-.hamburger{
+/* ---------- Mobile tab bar (sabi-sushi-style signature, bottom variant) ---------- */
+.mobile-tabbar{
   display:none;
-  flex-direction:column;justify-content:center;gap:5px;
-  width:36px;height:36px;background:none;border:none;padding:0;
+  position:fixed;left:0;right:0;bottom:0;z-index:100;
+  background:var(--ink);
+  padding:10px clamp(16px,4vw,28px);
+  align-items:stretch;justify-content:space-around;gap:8px;
+  box-shadow:0 -5px 15px rgba(24,22,15,.15);
 }
-.hamburger span{display:block;height:2px;background:var(--paper);border-radius:2px}
+.mobile-tabbar-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  flex:1;
+  color:var(--paper);font-family:var(--sans);font-size:11.5px;font-weight:600;
+  background:none;border:none;padding:9px 6px;border-radius:var(--radius-pill);
+}
+.mobile-tabbar-item svg{width:21px;height:21px}
+.mobile-tabbar-item.is-primary{background:var(--paper);color:var(--ink)}
 
 /* ---------- Mobile off-canvas ---------- */
 .mobile-menu{
@@ -438,11 +449,9 @@ section[id]{scroll-margin-top:96px}
 
 /* ---------- Small screens: header + spacing ---------- */
 @media (max-width:860px){
-  .main-nav{display:none}
-  .header-social{display:none}
-  .nav-cta{display:none}
-  .hamburger{display:flex}
-  .nav-pill{padding:8px}
+  .nav-pill{display:none}
+  .mobile-tabbar{display:flex}
+  body{padding-bottom:76px}
 }
 @media (max-width:600px){
   :root{--section-pad: clamp(52px, 14vw, 84px)}
