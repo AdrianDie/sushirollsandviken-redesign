@@ -54,6 +54,7 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeTabbarOrder();
     });
+    window.addEventListener('scroll', closeTabbarOrder, { passive: true });
   }
 
   /* ---------- Scroll reveal ---------- */
