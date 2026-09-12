@@ -33,6 +33,27 @@
     });
   }
 
+  /* ---------- Hero mobile order dropdown ---------- */
+  var heroOrder = document.getElementById('heroOrder');
+  var heroOrderTrigger = document.getElementById('heroOrderTrigger');
+  if (heroOrder && heroOrderTrigger) {
+    var closeHeroOrder = function () {
+      heroOrder.classList.remove('is-open');
+      heroOrderTrigger.setAttribute('aria-expanded', 'false');
+    };
+    heroOrderTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = heroOrder.classList.toggle('is-open');
+      heroOrderTrigger.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', function (e) {
+      if (!heroOrder.contains(e.target)) closeHeroOrder();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeHeroOrder();
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {

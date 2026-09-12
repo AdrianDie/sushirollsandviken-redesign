@@ -309,6 +309,25 @@ section[id]{scroll-margin-top:96px}
 @media (prefers-reduced-motion:reduce){.hero-scroll .arrow-circle{animation:none}}
 @media (max-width:640px){.hero-scroll{display:none}}
 
+/* ---------- Hero mobile order dropdown (Bestill -> Levering/Takeaway) ---------- */
+.hero-order{position:relative;display:none}
+.hero-order-trigger{width:100%;background:none;border:none;padding:0;font:inherit;cursor:pointer;text-align:left}
+.hero-order-menu{
+  position:absolute;left:0;right:0;bottom:calc(100% + 10px);z-index:5;
+  display:flex;flex-direction:column;gap:4px;
+  background:var(--paper);border-radius:16px;padding:8px;
+  box-shadow:var(--shadow-float);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.hero-order.is-open .hero-order-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.hero-order.is-open .hero-order-trigger .arrow-circle svg{transform:rotate(180deg)}
+.hero-order-menu a{
+  font-family:var(--sans);font-weight:600;font-size:14.5px;color:var(--ink);
+  padding:13px 14px;border-radius:10px;
+}
+.hero-order-menu a:hover,.hero-order-menu a:active{background:var(--paper-alt)}
+
 /* ---------- Chef's choice strip ---------- */
 .chefs{
   background:var(--ink);color:var(--paper);
@@ -459,4 +478,6 @@ section[id]{scroll-margin-top:96px}
   .hero h1{max-width:none}
   .hero-inner{padding-bottom:clamp(100px,20vw,140px)}
   .btn-row{width:100%;flex-direction:column;align-items:stretch;gap:14px}
+  .hero .hero-order-desktop{display:none}
+  .hero .hero-order{display:block}
 }
