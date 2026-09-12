@@ -254,6 +254,23 @@ section[id]{scroll-margin-top:96px}
 }
 .mobile-tabbar-item svg{width:21px;height:21px}
 .mobile-tabbar-item.is-primary{background:var(--paper);color:var(--ink)}
+.mobile-tabbar-item.is-active{background:var(--paper);color:var(--ink)}
+
+/* ---------- Tab bar order dropdown (Bestill -> Levering/Takeaway) ---------- */
+.tabbar-order-menu{
+  position:absolute;left:16px;right:16px;bottom:calc(100% + 14px);z-index:5;
+  display:flex;flex-direction:column;gap:4px;
+  background:var(--paper);border-radius:16px;padding:8px;
+  box-shadow:var(--shadow-float);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.mobile-tabbar.is-open .tabbar-order-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tabbar-order-menu a{
+  font-family:var(--sans);font-weight:600;font-size:14.5px;color:var(--ink);
+  padding:13px 14px;border-radius:10px;
+}
+.tabbar-order-menu a:hover,.tabbar-order-menu a:active{background:var(--paper-alt)}
 
 /* ---------- Mobile off-canvas ---------- */
 .mobile-menu{
@@ -308,25 +325,6 @@ section[id]{scroll-margin-top:96px}
 @keyframes bouncedown{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media (prefers-reduced-motion:reduce){.hero-scroll .arrow-circle{animation:none}}
 @media (max-width:640px){.hero-scroll{display:none}}
-
-/* ---------- Hero mobile order dropdown (Bestill -> Levering/Takeaway) ---------- */
-.hero-order{position:relative;display:none}
-.hero-order-trigger{width:100%;background:none;border:none;padding:0;font:inherit;cursor:pointer;text-align:left}
-.hero-order-menu{
-  position:absolute;left:0;right:0;bottom:calc(100% + 10px);z-index:5;
-  display:flex;flex-direction:column;gap:4px;
-  background:var(--paper);border-radius:16px;padding:8px;
-  box-shadow:var(--shadow-float);
-  opacity:0;visibility:hidden;transform:translateY(8px);
-  transition:opacity .2s ease, transform .2s ease, visibility .2s;
-}
-.hero-order.is-open .hero-order-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.hero-order.is-open .hero-order-trigger .arrow-circle svg{transform:rotate(180deg)}
-.hero-order-menu a{
-  font-family:var(--sans);font-weight:600;font-size:14.5px;color:var(--ink);
-  padding:13px 14px;border-radius:10px;
-}
-.hero-order-menu a:hover,.hero-order-menu a:active{background:var(--paper-alt)}
 
 /* ---------- Chef's choice strip ---------- */
 .chefs{
@@ -479,5 +477,4 @@ section[id]{scroll-margin-top:96px}
   .hero-inner{padding-bottom:clamp(100px,20vw,140px)}
   .btn-row{width:100%;flex-direction:column;align-items:stretch;gap:14px}
   .hero .hero-order-desktop{display:none}
-  .hero .hero-order{display:block}
 }

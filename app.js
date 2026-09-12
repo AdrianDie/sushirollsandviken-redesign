@@ -33,24 +33,26 @@
     });
   }
 
-  /* ---------- Hero mobile order dropdown ---------- */
-  var heroOrder = document.getElementById('heroOrder');
-  var heroOrderTrigger = document.getElementById('heroOrderTrigger');
-  if (heroOrder && heroOrderTrigger) {
-    var closeHeroOrder = function () {
-      heroOrder.classList.remove('is-open');
-      heroOrderTrigger.setAttribute('aria-expanded', 'false');
+  /* ---------- Tab bar order dropdown ---------- */
+  var mobileTabbar = document.getElementById('mobileTabbar');
+  var tabbarOrderTrigger = document.getElementById('tabbarOrderTrigger');
+  if (mobileTabbar && tabbarOrderTrigger) {
+    var closeTabbarOrder = function () {
+      mobileTabbar.classList.remove('is-open');
+      tabbarOrderTrigger.setAttribute('aria-expanded', 'false');
+      tabbarOrderTrigger.classList.remove('is-active');
     };
-    heroOrderTrigger.addEventListener('click', function (e) {
+    tabbarOrderTrigger.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = heroOrder.classList.toggle('is-open');
-      heroOrderTrigger.setAttribute('aria-expanded', String(isOpen));
+      var isOpen = mobileTabbar.classList.toggle('is-open');
+      tabbarOrderTrigger.setAttribute('aria-expanded', String(isOpen));
+      tabbarOrderTrigger.classList.toggle('is-active', isOpen);
     });
     document.addEventListener('click', function (e) {
-      if (!heroOrder.contains(e.target)) closeHeroOrder();
+      if (!mobileTabbar.contains(e.target)) closeTabbarOrder();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeHeroOrder();
+      if (e.key === 'Escape') closeTabbarOrder();
     });
   }
 
