@@ -405,6 +405,8 @@ section[id]{scroll-margin-top:96px}
 .site-footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px}
 .site-footer a{color:#cfc9b8}
 .site-footer a:hover{color:var(--paper)}
+.site-footer a[href*="dmarketing"]{color:var(--paper);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.site-footer a[href*="dmarketing"]:hover{color:#fff}
 
 /* ---------- Reveal animation ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
@@ -467,7 +469,7 @@ section[id]{scroll-margin-top:96px}
   .nav-pill{display:none}
   .mobile-tabbar{display:flex}
   body.menu-open .mobile-tabbar{display:none}
-  body{padding-bottom:76px}
+  body{padding-bottom:100px}
 }
 @media (max-width:600px){
   :root{--section-pad: clamp(52px, 14vw, 84px)}
