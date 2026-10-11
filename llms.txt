@@ -15,7 +15,12 @@
 - [Delivery via Wolt](https://wolt.com/en/nor/bergen/restaurant/sushi-roll-sandviken)
 - [Tripadvisor reviews](https://www.tripadvisor.com/Restaurant_Review-g190502-d24092539-Reviews-Sushi_Roll_Sandviken-Bergen_Hordaland_Western_Norway.html)
 
-## Pages
+## Pages in English
+
+- [Home (English)](https://sushirollsandviken.no/en/): overview, Kakure Omakase, opening hours, reviews, contact
+- [Menu (English)](https://sushirollsandviken.no/en/menu.html): full menu with prices and allergens
+
+## Pages in Norwegian
 
 - [Home](https://sushirollsandviken.no/): overview, opening hours, reviews
 - [Menu](https://sushirollsandviken.no/meny.html): full menu with prices
