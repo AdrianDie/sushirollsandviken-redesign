@@ -464,6 +464,14 @@ section[id]{scroll-margin-top:96px}
 .menu-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;border-radius:var(--radius-sm)}
 @media (max-width:760px){.menu-gallery{grid-template-columns:repeat(2,1fr)}}
 
+/* ---------- Menyside på PC: kategorilinjen tar over som header ---------- */
+.site-header{transition:transform .35s ease}
+@media (min-width:861px){
+  .category-nav{top:0}
+  body.catnav-stuck .site-header{transform:translateY(-100%)}
+  .menu-category{scroll-margin-top:90px}
+}
+
 /* ---------- Small screens: header + spacing ---------- */
 @media (max-width:860px){
   .nav-pill{display:none}
