@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adriandie.github.io/sushirollsandviken-redesign/sitemap.xml
+Sitemap: https://sushirollsandviken.no/sitemap.xml
